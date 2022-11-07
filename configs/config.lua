@@ -8,19 +8,19 @@ function L(cd, ...) if Locales[Config.Language][cd] then return string.format(Lo
 --╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝ ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 
 
-Config.Framework = 'esx' ---[ 'esx' / 'qbcore' / 'vrp' / 'identifiers', 'other' ] Choose your framework (by framework we mean choose the permission system you want to use).
+Config.Framework = 'qbcore' ---[ 'esx' / 'qbcore' / 'vrp' / 'identifiers', 'other' ] Choose your framework (by framework we mean choose the permission system you want to use).
 Config.Language = 'EN' --[ 'EN' ] You can add your own locales to the Locales.lua. But make sure to add it here.
 
 Config.FrameworkTriggers = { --You can change the esx/qbcore events (IF NEEDED).
-    main = 'esx:getSharedObject',   --ESX = 'esx:getSharedObject'   QBCORE = 'QBCore:GetObject'
-    load = 'esx:playerLoaded',      --ESX = 'esx:playerLoaded'      QBCORE = 'QBCore:Client:OnPlayerLoaded'
-    job = 'esx:setJob',             --ESX = 'esx:setJob'            QBCORE = 'QBCore:Client:OnJobUpdate'
-    resource_name = 'es_extended'   --ESX = 'es_extended'           QBCORE = 'qb-core'
+    main = 'QBCore:GetObject',   --ESX = 'esx:getSharedObject'   QBCORE = 'QBCore:GetObject'
+    load = 'QBCore:Client:OnPlayerLoaded',      --ESX = 'esx:playerLoaded'      QBCORE = 'QBCore:Client:OnPlayerLoaded'
+    job = 'QBCore:Client:OnJobUpdate',             --ESX = 'esx:setJob'            QBCORE = 'QBCore:Client:OnJobUpdate'
+    resource_name = 'qb-core'   --ESX = 'es_extended'           QBCORE = 'qb-core'
 }
 
 Config.NotificationType = { --[ 'esx' / 'qbcore' / 'mythic_old' / 'mythic_new' / 'chat' / 'other' ] Choose your notification script.
-    server = 'esx',
-    client = 'esx' 
+    server = 'qbcore',
+    client = 'qbcore' 
 }
 
 
@@ -42,7 +42,7 @@ Config.StaffSit = {
     },
     perms = {
         ['esx'] = {'superadmin', 'admin', 'mod'},
-        ['qbcore'] = {'god', 'admin'},
+        ['qbcore'] = {'god', 'admin', 'mod'},
         ['vrp'] = {'change_me', 'change_me'},
         ['identifiers'] = {'steam:xxxxx', 'license:xxxxx'},
         ['other'] = {'change_me', 'change_me'}
@@ -66,7 +66,7 @@ Config.StaffJail = {
     },
     perms = {
         ['esx'] = {'superadmin', 'admin', 'mod'},
-        ['qbcore'] = {'god', 'admin'},
+        ['qbcore'] = {'god', 'admin', 'mod'},
         ['vrp'] = {'change_me', 'change_me'},
         ['identifiers'] = {'steam:xxxxx', 'license:xxxxx'},
         ['other'] = {'change_me', 'change_me'}
@@ -79,7 +79,7 @@ Config.StaffJail = {
 }
 
 Config.HolyTroll = {
-    ENABLE = true, --Do you want to enable the holy troll feature?
+    ENABLE = false, --Do you want to enable the holy troll feature?
     commands = {
         start = 'holytroll'
     },
